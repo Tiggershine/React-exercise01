@@ -29,6 +29,10 @@
   display: flex;
   align-items: center;
 }
+
+#BasicButton BasicButton {
+  background-color: aqua;
+}
 /* Size of button */
 .BasicButton, .TextButton, .ImageButton{
   width: 200px;

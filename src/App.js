@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+// import BasicButton from './components/Button/BasicButton';
 // import Content from "./components/Content";
 // import TOC from "./components/TOC";
 // import Subject from "./components/Subject";
@@ -9,19 +10,43 @@ import './App.css';
 const App = () => {
   const [number, setNumber] = useState(0);
 
+// BasicButton
+function BasicButton(props) {
+  return (
+      <button onClick={() => setNumber(number+1)}>{props.name}</button>
+  );
+}
+
+// TextButton
+function TextButton(props) {
+  return (
+    <text onClick={() => setNumber(number+1)}>{props.name}</text>
+  )
+}
+
+// ImageButton
+function ImageButton(props) {
+  return (
+    <img src={props.src} alt={props.alt} onClick={() => setNumber(number + 1)}/>
+  )
+}
+
   return (
     <div className="App">
       <div className="Counter">
         <h2>{number}</h2>
       </div>
       <div className="ButtonWrapper">
-        <button className="BasicButton" onClick={() => setNumber(number + 1)}>BasicButton</button>
-        <div className="TextButton"><text onClick={() => setNumber(number + 1)}>누르면 +1</text></div>
-        <img className="ImageButton" src="/image/tigger.png" alt="tigger" onClick={() => setNumber(number + 1)}/>
+        <div className="BasicButton"><BasicButton name="Basic Button" id="BasicButton"/></div>
+        <div className="TextButton"><TextButton name="누르면 1 증가"/></div>
+        <ImageButton className="ImageButton" src="/image/tigger.png" alt="tigger"/>
       </div>
     </div>
   );
 };
+
+
+
 
 
 
